@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +27,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-3">
               <div className={`p-3 rounded-2xl shadow-lg transition-all duration-500 ${
                 isScrolled 
-                  ? 'bg-gradient-to-r from-healthcare-primary to-healthcare-secondary' 
+                  ? 'bg-gradient-href-r from-healthcare-primary href-healthcare-secondary' 
                   : 'bg-white/90 backdrop-blur-sm'
               }`}>
                 <svg className={`w-8 h-8 transition-colors duration-500 ${
@@ -54,31 +53,31 @@ const Navbar = () => {
           </div>
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <NavLink to="/" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
+            <a href="#home" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
               isScrolled ? 'text-gray-700' : 'text-gray-700'
             }`}>
               Home
-            </NavLink>
-            <NavLink to="/services" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
+            </a>
+            <a href="#services" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
               isScrolled ? 'text-gray-700' : 'text-gray-700'
             }`}>
               Services
-            </NavLink>
-            <NavLink to="/about" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
+            </a>
+            <a href="#about" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
               isScrolled ? 'text-gray-700' : 'text-gray-700'
             }`}>
               About
-            </NavLink>
-            <NavLink to="/contact" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
+            </a>
+            <a href="#contact" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
               isScrolled ? 'text-gray-700' : 'text-gray-700'
             }`}>
               Contact
-            </NavLink>
-            <NavLink to="/hospital" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
+            </a>
+            <a href="#hospital" className={`text-base font-semibold transition-colors duration-300 hover:text-healthcare-primary ${
               isScrolled ? 'text-gray-700' : 'text-gray-700'
             }`}>
               Hospital
-            </NavLink>
+            </a>
           </div>
 
           
@@ -101,7 +100,43 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden">
+            <div className="px-3 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 mb-4">
+              <a
+                href="#home"
+                className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
+              >
+                Home
+              </a>
+              <a
+                href="#services"
+                className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
+              >
+                Services
+              </a>
+              <a
+                href="#about"
+                className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
+              >
+                Contact
+              </a>
+              <a
+                href="#hospital"
+                className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
+              >
+                Hospital
+              </a>
+            </div>
+          </div>
+        )}
     </nav>
   );
 };

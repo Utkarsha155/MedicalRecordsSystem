@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
 
 const Contact = () => (
   <section id="contact" className="py-20 bg-white animate-fadeIn">

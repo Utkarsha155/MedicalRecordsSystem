@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
 
 const About = () => (
   <section id="about" className="py-20 bg-gradient-to-r from-blue-50 to-cyan-100 animate-fadeIn">

@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
 
 const Home = () => (
   <section id="home" className="pt-8 pb-20 bg-gradient-to-br from-green-50 via-white to-lime-50 min-h-screen flex items-center justify-center animate-fadeIn">
@@ -19,7 +18,7 @@ const Home = () => (
       <div className="flex-1 flex justify-center animate-fadeInUp">
         <div className="relative">
           <div className="absolute -inset-6 bg-gradient-to-r from-healthcare-primary to-healthcare-accent rounded-[32px] blur opacity-30"></div>
-          <img src="undraw_doctors_djoj.png" alt="Healthcare" className="relative rounded-3xl shadow-2xl w-2/3 max-w-xl border-8 border-white" />
+          <img src="undraw_doctors_djoj.svg" alt="Healthcare" className="relative rounded-3xl shadow-2xl w-2/3 max-w-xl border-8 border-white" />
         </div>
       </div>
     </div>
