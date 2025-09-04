@@ -158,40 +158,9 @@ const Services = () => {
             </div>
           ))}
         </div>
-
-        {/* Enhanced Bottom CTA */}
-        <div className={`mt-20 transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          <div className="relative bg-gradient-to-r from-healthcare-primary via-healthcare-secondary to-healthcare-accent rounded-3xl p-12 text-white overflow-hidden">
-            {/* Animated Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20zm0-20c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/svg%3E")`,
-                animation: 'move 15s linear infinite'
-              }}></div>
-            </div>
-            
-            <div className="relative z-10 text-center">
-              <h3 className="text-4xl font-bold mb-6 animate-pulse">
-                Ready to Get Started?
-              </h3>
-              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Join thousands of healthcare professionals already using our platform
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="group px-8 py-4 bg-white text-healthcare-primary rounded-2xl font-semibold text-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 relative overflow-hidden">
-                  <span className="relative z-10">Schedule Demo</span>
-                  <div className="absolute inset-0 bg-gray-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </button>
-                <button className="group px-8 py-4 border-2 border-white text-white rounded-2xl font-semibold text-lg hover:bg-white hover:text-healthcare-primary transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
-                  Contact Sales
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-10px) rotate(180deg); }
@@ -203,7 +172,7 @@ const Services = () => {
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
-      `}</style>
+      `}</style> */}
     </section>
   );
 };

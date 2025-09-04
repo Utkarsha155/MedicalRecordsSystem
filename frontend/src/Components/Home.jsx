@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Home = () => (
-  <section id="home" className="pt-8 pb-20 bg-gradient-to-br from-green-50 via-white to-lime-50 min-h-screen flex items-center justify-center animate-fadeIn">
+  <section id="home" className="pb-20 bg-gradient-to-br from-green-50 via-white to-lime-50 min-h-screen flex items-center justify-center animate-fadeIn">
     <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
       <div className="flex-1 text-center lg:text-left">
         <h1 className="text-5xl md:text-6xl font-extrabold text-healthcare-text mb-6 drop-shadow-lg animate-slideInDown">
