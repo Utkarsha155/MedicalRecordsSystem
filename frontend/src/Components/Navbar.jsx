@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+import {HashLink} from 'react-router-hash-link';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,18 +27,18 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="#home" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
+            <HashLink smooth to="/#home" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Home
-            </a>
-            <a href="#services"className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
+            </HashLink>
+            <HashLink smooth to="/#services"className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Services
-            </a>
-            <a href="#about" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
+            </HashLink>
+            <HashLink smooth to="/#about" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               About
-            </a>
-            <a href="#contact" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
+            </HashLink>
+            <HashLink smooth to="/#contact" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Contact
-            </a>
+            </HashLink>
             <Link to="/login"><button>Login</button></Link>
             <Link to="/signup"><button>Get Started</button></Link>
           </div>
@@ -78,30 +79,30 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden">
             <div className="px-3 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 mb-4">
-              <a
-                href="#home"
+              <HashLink
+                smooth to="/#home"
                 className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
               >
                 Home
-              </a>
-              <a
-                href="#services"
+              </HashLink>
+              <HashLink
+                smooth to="/#services"
                 className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
               >
                 Services
-              </a>
-              <a
-                href="#about"
+              </HashLink>
+              <HashLink
+                smooth to="/#about"
                 className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
               >
                 About
-              </a>
-              <a
-                href="#contact"
+              </HashLink>
+              <HashLink
+                smooth to="/#contact"
                 className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"
               >
                 Contact
-              </a>
+              </HashLink>
               
               <Link to="/login"><button>Login</button></Link>
             <Link to="/signup"><button>Get Started</button></Link>

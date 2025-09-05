@@ -21,19 +21,19 @@ function App() {
                     <Route path="/" element={
                         <>
                             <Home />
-                            <Services />
-                            <About />
-                            <Contact />
-                            <Footer />
+                            <Services/>
+                            <About/>
+                            <Contact/>
+                            <Footer/>
                         </>
                     } />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
 
                     <Route path="/user-dashboard" element={<ProtectedRoute role="user"><UserDashboard /></ProtectedRoute>} />
-                    <Route path="/hospital-dashboard" element={<ProtectedRoute role="user"><HospitalDashboard /></ProtectedRoute>} />
+                    <Route path="/hospital-dashboard" element={<ProtectedRoute role="hospital"><HospitalDashboard /></ProtectedRoute>} />
                 </Routes>
-                
+
             </Router>
         </>)
 

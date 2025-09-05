@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom';
 
 const Signup = () => {
     const [role, setRole] = useState("user");
     const [formData, setFormData] = useState({});
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,12 +20,23 @@ const Signup = () => {
         });
 
         const data = await res.json();
-        console.log("Signup response", data);
+
+        if (data.success) {
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("role", data.role);
+
+  if (role === "user") {
+    navigate("/user-dashboard");
+  } else if (role === "hospital") {
+    navigate("/hospital-dashboard");
+  }
+}
+
     };
 
     return (
         <section>
-            <div className="flex flex-col justify-center items-center animate-fadeInUp">
+            <div className="mt-24 flex flex-col justify-center items-center animate-fadeInUp">
                 <h1 className="flex justify-center bg-gradient-to-r from-healthcare-primary to-healthcare-secondary text-black font-bold text-3xl rounded-xl p-5 w-full max-w-md m-3">Create your account</h1>
 
                 <h3>Please Select Your Role</h3>

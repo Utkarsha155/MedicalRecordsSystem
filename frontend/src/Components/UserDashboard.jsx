@@ -2,12 +2,10 @@ import React from 'react'
 
 const UserDashboard = () => {
   return (
-    <div>
-      <div>
-    <h1 className="text-black font-lg">
-      Welcome to hospital page
+    <div className="mt-28">
+    <h1 className="text-black text-5xl ">
+      Welcome to user page
     </h1>
-    </div>
     </div>
   )
 }
