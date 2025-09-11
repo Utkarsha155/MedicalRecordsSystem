@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [role, setRole] = useState("user");
@@ -16,21 +16,21 @@ const Signup = () => {
         const res = await fetch("http://localhost:5000/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({...formData, role}),
+            body: JSON.stringify({ ...formData, role }),
         });
 
         const data = await res.json();
 
         if (data.success) {
-  localStorage.setItem("token", data.token);
-  localStorage.setItem("role", data.role);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("role", data.role);
 
-  if (role === "user") {
-    navigate("/user-dashboard");
-  } else if (role === "hospital") {
-    navigate("/hospital-dashboard");
-  }
-}
+            if (role === "user") {
+                navigate("/user-dashboard");
+            } else if (role === "hospital") {
+                navigate("/hospital-dashboard");
+            }
+        }
 
     };
 
@@ -60,7 +60,7 @@ const Signup = () => {
                     )}
                     {role === "hospital" && (
                         <>
-                        <input className="p-2 m-2 rounded-md " type="text" placeholder="Username" name="username" onChange={handleChange} />
+                            <input className="p-2 m-2 rounded-md " type="text" placeholder="Username" name="username" onChange={handleChange} />
                             <input className="p-2 m-2 rounded-md " type="text" placeholder="HospitalName" name="hospitalName" onChange={handleChange} />
                             <input className="p-2 m-2 rounded-md " type="email" placeholder="Email" name="email" onChange={handleChange} />
                             <input className="p-2 m-2 rounded-md " type="password" placeholder="Password" name="password" onChange={handleChange} />

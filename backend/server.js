@@ -27,9 +27,11 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 
 /* ---------------- SIGNUP ---------------- */
 app.post("/signup", async (req, res) => {
@@ -57,14 +59,14 @@ app.post("/signup", async (req, res) => {
       expiresIn: "1h",
     });
     res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
-res.json({
-  success: true,   // <-- important
-  message: "Signup successful",
-  token,           // send token
-  role,            // send role back
-  user: newDoc
-});
-    
+    res.json({
+      success: true,   // <-- important
+      message: "Signup successful",
+      token,           // send token
+      role,            // send role back
+      user: newDoc
+    });
+
   } catch (err) {
     console.error("Signup error:", err);
     res.status(500).json({ message: "Server error", error: err.message });
@@ -87,12 +89,12 @@ app.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
     res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
-res.json({
-  success: true,
-  message: "Login successful",
-  token,
-  role
-});
+    res.json({
+      success: true,
+      message: "Login successful",
+      token,
+      role
+    });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }

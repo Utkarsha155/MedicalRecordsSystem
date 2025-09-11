@@ -1,36 +1,25 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
-import {HashLink} from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import Login from './Login'
+import Signup from './Signup'
 
 const Navbar = () => {
+   const [role, setRole] = useState("user");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-md border-b border-white/30 transition-all duration-500">
       <div className="w-full px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo Section */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3">
-              <div className="p-3 rounded-2xl shadow-lg bg-white/90 backdrop-blur-sm">
-                <svg
-                  className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">HealthCare+</h1>
-                <p className="text-xs text-gray-700">Your Health, Our Priority</p>
-              </div>
-            </div>
-          </div>
+          <div><img src = "./../Medical.jpg" className="h-12 w-auto object-contain"/></div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <HashLink smooth to="/#home" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Home
             </HashLink>
-            <HashLink smooth to="/#services"className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
+            <HashLink smooth to="/#services" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Services
             </HashLink>
             <HashLink smooth to="/#about" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
@@ -39,8 +28,8 @@ const Navbar = () => {
             <HashLink smooth to="/#contact" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary">
               Contact
             </HashLink>
-            <Link to="/login"><button>Login</button></Link>
-            <Link to="/signup"><button>Get Started</button></Link>
+                <Link to="/login" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary"><button>Login</button></Link>
+                <Link to="/signup" className="text-base font-semibold text-gray-700 transition-colors duration-300 hover:text-healthcare-primary"><button>Get Started</button></Link>            
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,9 +92,9 @@ const Navbar = () => {
               >
                 Contact
               </HashLink>
-              
-              <Link to="/login"><button>Login</button></Link>
-            <Link to="/signup"><button>Get Started</button></Link>
+
+              <Link to="/login" className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"><button>Login</button></Link>
+              <Link to="/signup" className="block py-2 text-base font-medium text-gray-700 hover:text-healthcare-primary hover:bg-healthcare-bg rounded-lg transition-colors duration-200"><button>Get Started</button></Link>
             </div>
           </div>
         )}
