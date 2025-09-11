@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-mongoose.connect(`mongodb://127.0.0.1:27017/authestapp`);
+const bcrypt = require('bcrypt');
 
 const hospitalSchema = mongoose.Schema({
   hospitalName: {
@@ -11,16 +10,50 @@ const hospitalSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: { type: String, required: true },
-  confirmpassword: { type: String, required: false },
-  phone: { type: String, required: true, unique: true },
+  password: { 
+    type: String, 
+    required: true 
+  },
+  phone: { 
+    type: String, 
+    required: true, 
+    unique: true 
+},
   address: {
     type: String,
   },
   licenseNumber: {
     type: String,
-  },
-}, { timestamps: true });
+    unique: true
+  }
+});
 
+hospitalSchema.pre('save',async function(next) {
+  const hospital = this;
+  
+  if(!hospital.isModified('password'))return next()
 
-module.exports = mongoose.model("Hospital", hospitalSchema);
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(hospital.password, salt);
+    hospital.password = hash;
+
+    next();
+
+  }catch(err){
+    return next(err)
+  }
+})
+
+hospitalSchema.methods.comparePassword = async function(candidatePassword) {
+  try{
+  const isMatch = await bcrypt.compare(candidatePassword, this.password);
+  return isMatch;
+
+  }catch(err){
+    throw err;
+  }
+}
+
+const Hospital = mongoose.model('Hospital', hospitalSchema);
+module.exports = Hospital;

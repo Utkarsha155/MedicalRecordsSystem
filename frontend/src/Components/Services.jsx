@@ -18,7 +18,7 @@ const Services = () => {
       delay: 0
     },
     {
-      icon: "\ud83d\udc68‍⚕️",
+      icon: "\ud83d\udc68‍⚕",
       title: "Doctor Portal",
       description: "Advanced tools for healthcare providers to manage patients, records, and appointments.",
       features: ["Patient Records", "Treatment Plans", "Prescription Management", "Telemedicine"],
