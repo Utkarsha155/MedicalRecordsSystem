@@ -1,9 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
-mongoose.connect(`mongodb://127.0.0.1:27017/authestapp`);
-
-const userSchema = mongoose.Schema({
-  username: {
+const userSchema = new mongoose.Schema({
+  userName: {
     type: String,
     required: true,
     unique: true,
@@ -16,10 +15,47 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  password: { type: String, required: true },
-  confirmpassword: { type: String, required: false },
-  phone: { type: String, required: true, unique: true },
-}, { timestamps: true });
+  password: {
+    type: String,
+    required: true,
+  },
+  confirmpassword: {
+    type: String,
+    required: false,
+  },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+});
 
+userSchema.pre('save',async function(next) {
+  const user = this;
+  if(!user.isModified('password'))return next()
 
-module.exports = mongoose.model("User", userSchema);
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(user.password, salt);
+    
+    user.password = hash;
+
+    next();
+
+  }catch(err){
+    return next(err)
+  }
+})
+
+userSchema.methods.comparePassword = async function(candidatePassword) {
+  try{
+  const isMatch = await bcrypt.compare(candidatePassword, this.password);
+  return isMatch;
+
+  }catch(err){
+    throw err;
+  }
+}
+
+const User = mongoose.model("User", userSchema);
+module.exports = User;
