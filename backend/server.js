@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const userRoutes = require('./routes/userRoutes');
 const hospitalRoutes = require('./routes/hospitalRoutes');
+const fileRoutes = require('./routes/fileRoutes');
 
 app.use(
   cors({
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 
 app.use('/user', userRoutes);
 app.use('/hospital', hospitalRoutes);
+app.use('/user', fileRoutes);
 
 app.listen(PORT, ()=> {
   console.log('Server is running on port', PORT);

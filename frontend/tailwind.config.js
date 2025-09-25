@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    // Dynamic gradients and dots used in Services
+    { pattern: /(from|via|to)-(blue|emerald|rose|amber|slate|violet)-(400|500|600|700)/ },
+    { pattern: /bg-(blue|emerald|rose|amber|slate|violet)-400/ },
+  ],
   theme: {
     extend: {
       colors: {
@@ -14,6 +19,12 @@ export default {
           text: "#052E16", // deep green-950
           muted: "#4D7C57" // desaturated green for muted text
         }
+      },
+      boxShadow: {
+        'glow': '0 10px 30px -10px rgba(34,197,94,0.35), 0 4px 12px -6px rgba(22,101,52,0.25)'
+      },
+      backgroundImage: {
+        'healthcare-radial': 'radial-gradient( circle at 20% 20%, rgba(34,197,94,0.10), transparent 40% ), radial-gradient( circle at 80% 0%, rgba(132,204,22,0.10), transparent 40% )'
       }
     },
   },

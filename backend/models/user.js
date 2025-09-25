@@ -4,7 +4,6 @@ const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema({
   userName: {
     type: String,
-    required: true,
     unique: true,
   },
   name: {
@@ -25,7 +24,6 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
     unique: true,
   },
 });
